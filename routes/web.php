@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+	$composer = str_replace('public', 'composer.json', getcwd());
+	$composer = json_decode(file_get_contents($composer));
+	// return response()->json([
+	// 	'name' => $composer->name,
+	// 	'description' => $composer->description,
+	// ]);
+    return response()->json($composer);
 });

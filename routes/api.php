@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::group(['prefix' => 'countries'], function() {
+    Route::get('/', 'CountryController@index');
+    Route::get('/{id}', 'CountryController@show');
+    Route::post('/', 'CountryController@store');
+    Route::put('/{id}', 'CountryController@update');
+    Route::delete('/{id}', 'CountryController@destroy');
 });

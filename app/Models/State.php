@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model {
     /**
+     * Get the country it belongs to.
+     */
+    public function country() {
+        return $this->belongsTo('App\Models\Country');
+    }
+
+    /**
      * Get the cities for the state.
      */
     public function cities() {

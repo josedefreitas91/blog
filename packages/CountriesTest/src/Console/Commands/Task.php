@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseExample\Console\Commands;
+namespace CountriesTest\Console\Commands;
 
 use Illuminate\Console\Command;
 use DB;

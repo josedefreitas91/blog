@@ -33,8 +33,11 @@
         }
     },
     "autoload": {
+        "files": [
+        ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "CountriesTest\\": "packages/CountriesTest/src"
         },
         "classmap": [
             "database/seeds",

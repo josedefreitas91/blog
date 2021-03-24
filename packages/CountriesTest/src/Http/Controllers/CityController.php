@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CountriesTest\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use App\Models\City;
+use CountriesTest\Models\City;
 
 class CityController extends Controller {
 
-    public function index() {
-        return response(City::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
+    public function index(City $city) {
+        return response($city::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
     }
 
-    public function show($id) {
+    public function show(City $city, $id) {
         try {
-            $city = City::where('id', $id);
+            $city::where('id', $id);
             if (!$city->exists()) {
                 return response()->json([
                     "message" => "City not found"
@@ -37,9 +37,8 @@ class CityController extends Controller {
         }
     }
 
-    public function store(Request $request) {
+    public function store(City $city, Request $request) {
         try {
-            $city = new City;
             $city->name = $request->name;
             $city->state_id = $request->state_id;
             $city->save();

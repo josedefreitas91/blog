@@ -1,6 +1,6 @@
 <?php 
 
-namespace BaseExample\Services;
+namespace CountriesTest\Services;
 
 class Crypt{
 

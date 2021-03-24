@@ -1,11 +1,11 @@
 {
-    "name": "base-example",
-    "description": "Core utilities and classes incl. Context management",
+    "name": "countries-test",
+    "description": "Countries, states and cities",
     "type": "php",
     "authors": [
         {
-            "name": "Juan Carrizalez",
-            "email": "sitgem@gmail.com"
+            "name": "Jose De Freitas",
+            "email": "josedefreitas91@gmail.com"
         }
     ],
     "require": {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BaseExample\\": "src/"
+            "CountriesTest\\": "src/"
         }
     }
 }

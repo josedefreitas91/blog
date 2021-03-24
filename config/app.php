@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        // My test package
+        CountriesTest\Providers\RegisterProvider::class,
 
         /*
          * Application Service Providers...

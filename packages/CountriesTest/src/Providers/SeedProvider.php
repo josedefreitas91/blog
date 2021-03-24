@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseExample\Providers;
+namespace CountriesTest\Providers;
 
 use Illuminate\Console\Events\CommandFinished;
 use Illuminate\Support\Facades\Artisan;

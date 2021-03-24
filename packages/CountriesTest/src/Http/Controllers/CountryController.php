@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CountriesTest\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use App\Models\Country;
+use CountriesTest\Models\Country;
 
 class CountryController extends Controller {
 
-    public function index() {
-        return response(Country::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
+    public function index(Country $country) {
+        return response($country::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
     }
 
-    public function show($id) {
+    public function show(Country $country, $id) {
         try {
-            $country = Country::where('id', $id);
+            $country::where('id', $id);
             if (!$country->exists()) {
                 return response()->json([
                     "message" => "Country not found"
@@ -39,9 +39,8 @@ class CountryController extends Controller {
         }
     }
 
-    public function store(Request $request) {
+    public function store(Country $country, Request $request) {
         try {
-            $country = new Country;
             $country->name = $request->name;
             $country->save();
     
@@ -53,6 +52,11 @@ class CountryController extends Controller {
                 "message" => $e->getMessage()
             ], 400);
         }
+
+        // $country::findOrCreate($request->all());
+        // return response()->json([
+        //     "message" => "Country record created"
+        // ], 201);
     }
 
     public function update(Request $request, $id) {

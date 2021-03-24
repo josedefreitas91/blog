@@ -1,11 +1,11 @@
 <?php
 
-namespace BaseExample\Providers;
+namespace CountriesTest\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
-use BaseExample\Console\Commands\Task;
-use BaseExample\Providers\SeedProvider;
+use CountriesTest\Console\Commands\Task;
+use CountriesTest\Providers\SeedProvider;
 use Schema;
 
 class RegisterProvider extends ServiceProvider

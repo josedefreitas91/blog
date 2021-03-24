@@ -1,4 +1,5 @@
 <?php
+
 if (!function_exists("jsend_error")) {
     /**
      * @param string $message Error message

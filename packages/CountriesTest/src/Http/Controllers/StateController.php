@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CountriesTest\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use App\Models\State;
+use CountriesTest\Models\State;
 
 class StateController extends Controller {
 
-    public function index() {
-        return response(State::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
+    public function index(State $state) {
+        return response($state::where('active', 1)->get()->toJson(JSON_PRETTY_PRINT), 200);
     }
 
-    public function show($id) {
+    public function show(State $state, $id) {
         try {
-            $state = State::where('id', $id);
+            $state::where('id', $id);
             if (!$state->exists()) {
                 return response()->json([
                     "message" => "State not found"
@@ -37,9 +37,8 @@ class StateController extends Controller {
         }
     }
 
-    public function store(Request $request) {
+    public function store(State $state, Request $request) {
         try {
-            $state = new State;
             $state->name = $request->name;
             $state->country_id = $request->country_id;
             $state->save();
